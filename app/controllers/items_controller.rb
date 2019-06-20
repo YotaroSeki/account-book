@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = current_user.items
+    @current_month_items = current_user.items.by_month(Date.today.month, field: :purchased_date)
+    @today_items = @current_month_items.select { |item| item.purchased_date == Date.today }
   end
 
   # GET /items/1
@@ -69,6 +71,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:price, :name)
+      params.require(:item).permit(:price, :name, :user_id, :purchased_date)
     end
 end
