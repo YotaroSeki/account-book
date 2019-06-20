@@ -15,7 +15,7 @@
         <%= link_to "Account book", root_path, id: "logo" %>
         <nav>
           <ul>
-            <li style="color:#fff;"><%= link_to "Home",   root_path %></li>
+            <li><%= link_to "Home",   root_path, style: "color:#fff;" %></li>
           </ul>
         </nav>
       </div>
@@ -24,7 +24,7 @@
       <%= yield %>
     </div>
     <% if user_signed_in? %>
-      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %></p>
     <% end %>
   </body>
 </html>
