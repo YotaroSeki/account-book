@@ -26,9 +26,9 @@
         <td><%= item.name %></td>
         <td><%= item.price %></td>
         <td><%= item.purchased_date %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button class="btn btn-outline-secondary"><%= link_to 'Show', item %></button></td>
+        <td><button class="btn btn-outline-secondary"><%= link_to 'Edit', edit_item_path(item) %></button></td>
+        <td><button class="btn btn-outline-secondary"><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
