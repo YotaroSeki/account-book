@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    redirect_to root_path unless @item.user_id == current_user.id
   end
 
   # GET /items/new
