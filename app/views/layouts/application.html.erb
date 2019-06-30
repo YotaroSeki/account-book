@@ -23,8 +23,5 @@
     <div class="container">
       <%= yield %>
     </div>
-    <% if user_signed_in? %>
-      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %></p>
-    <% end %>
   </body>
 </html>

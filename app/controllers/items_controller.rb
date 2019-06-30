@@ -4,15 +4,14 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = current_user.items
-    @current_month_items = current_user.items.by_month(Date.today.month, field: :purchased_date)
+    @items = Item.all
+    @current_month_items = Item.all.by_month(Date.today.month, field: :purchased_date)
     @today_items = @current_month_items.select { |item| item.purchased_date == Date.today }
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-    redirect_to root_path unless @item.user_id == current_user.id
   end
 
   # GET /items/new
